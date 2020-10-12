@@ -1,7 +1,7 @@
 # devappiot
 Trabajo práctico para la materia Desarrollo de Aplicaciones III que forma parte de la especialidad en Internet de las Cosas de la Universidad de Buenos Aires.
 
-![status](https://img.shields.io/badge/status-running-green.svg?colorB=00C106) ![readme](https://img.shields.io/badge/readme-OK-green.svg?colorB=00C106) ![database](https://img.shields.io/badge/database-OK-green.svg?colorB=00C106) ![commits](https://img.shields.io/badge/commits-17-blue.svg)  ![techs](https://img.shields.io/badge/techs-javascript—php—css—bootstrap-yellow-angular-ionic-typescript.svg)
+![status](https://img.shields.io/badge/status-running-green.svg?colorB=00C106) ![readme](https://img.shields.io/badge/readme-OK-green.svg?colorB=00C106) ![database](https://img.shields.io/badge/database-OK-green.svg?colorB=00C106) ![commits](https://img.shields.io/badge/commits-2-blue.svg)  
 
 ## Autor
 Atilio Cesar Errecaborde
@@ -61,11 +61,10 @@ develop
 
         En el archivo [`mongo/index.js`](https://github.com/atilioe101/devappiot/blob/develop/WebAPI/mongo/index.js) se encuentra la configuración para la conexión a la base de datos instalada en el servicio MongoDB.
         En el encabezado del archivo se encuentras las constantes con los parámetro de conexión:
-
-        // Connection URL and  Database Name +++++++++++
+        
         const url = 'mongodb://localhost:27017';
         const dbName = 'Fabrica';
-        // +++++++++++++++++++++++++++++++++++++++++++++
+        
   
   3) Descargar la carpeta WebApp. Ubicado en la raiz, ejecutar los siguientes comandos desde el shell del SO:
 
