@@ -1,5 +1,5 @@
 # devappiot
-Trabajo práctico para la materia Desarrollo de Aplicaciones III que forma parte de la especialidad en Internet de las Cosas de la Universidad de Buenos Aires.
+Trabajo práctico para la materia **Desarrollo de Aplicaciones III** que forma parte de la especialidad en Internet de las Cosas de la Universidad de Buenos Aires.
 
 ![status](https://img.shields.io/badge/status-running-green.svg?colorB=00C106) ![readme](https://img.shields.io/badge/readme-OK-green.svg?colorB=00C106) ![database](https://img.shields.io/badge/database-OK-green.svg?colorB=00C106) ![commits](https://img.shields.io/badge/commits-2-blue.svg)  
 
@@ -7,7 +7,7 @@ Trabajo práctico para la materia Desarrollo de Aplicaciones III que forma parte
 Atilio Cesar Errecaborde
 
 ## Estructura del proyecto
-La estructura del proyecto está organizadas de la siguiente manera. 
+La estructura del proyecto está organizada de la siguiente manera. 
 
 develop
 
@@ -48,7 +48,7 @@ develop
   1) Ejecutar el script en el shell de mongo para crear la base de datos [`crearDB.js`](https://github.com/atilioe101/devappiot/blob/develop/Database/createDB.js)
 
             Nombre de la base de datos creada: Fabrica
-            Colecciones creadas: Dispositivos y Mediciones
+            Colecciones: Dispositivos y Mediciones
 
   2) Descargar la carpeta WebAPI. Ubicado en la raiz, ejecutar los siguientes comandos desde el shell del SO:
 
@@ -71,7 +71,7 @@ develop
                 a) npm install
                 b) ng serve --port 80 --open                
         
-        Si se modifico la configuración del servicio WebAPI, entonces se debe actualizar el archivo con la configuración del entorno.        
+        Si se modifico la configuración del servicio WebAPI se deberá actualizar el archivo con la configuración del entorno.        
         [`environment.ts`](https://github.com/atilioe101/devappiot/blob/develop/WebApp/src/environments/environment.ts) 
         
   4) Ingresar a node-red y en la opción Importación del menur abrir el archivo [`createflow_nodered.json`](https://github.com/atilioe101/devappiot/blob/develop/OnlineApp/createflow_nodered.json) 
