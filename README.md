@@ -11,7 +11,7 @@ La estructura del proyecto está organizada de la siguiente manera.
 
 develop
 
-  ![](https://github.com/atilioe101/devappiot/blob/develop/folder.ico)Database (script para crear la base de datos desde el shell de mongoDB)
+  ![](https://github.com/atilioe101/devappiot/blob/develop/folder.ico){: width=30px:height=30px} Database (script para crear la base de datos desde el shell de mongoDB)
   
   └───WebApp (aplicación en Angular)
   
