@@ -18,7 +18,7 @@ La estructura de carpetas del proyecto está organizada de la siguiente manera:
   **OnlineApp** > script para crear flow en node-red
 
 
-### Funcionalidades y características requeridas
+## Funcionalidades y características requeridas
 
 1. Servidor MQTT
 
