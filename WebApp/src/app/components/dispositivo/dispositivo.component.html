@@ -1,0 +1,111 @@
+
+<div class="container">		
+  <div class="row">
+    <div class="col s10 m8 l7">      
+      <ng-template [ngIf]="dispositivos?.length > 0" [ngIfElse]="loading">
+          <ul class="collection">
+            <li class="collection-item avatar" *ngFor = "let row of dispositivos">    
+              <div class="fixed-action-btn horizontal" style="position: relative; text-align: right;margin-top:1.5em;">
+                <a class="btn-floating btn-tiny red">
+                  <i class="tiny mdi-navigation-menu"></i>
+                </a>
+                <ul>
+                  <li><a class="btn-floating red modal-trigger" (click)="prepareForDelete(row)" data-target="delete_"><i class="material-icons">delete</i></a></li>
+                  <li><a class="btn-floating red modal-trigger" (click)="prepareForUpd(row)" data-target="edit_"><i class="material-icons">edit</i></a></li>
+                  <li><a class="btn-floating red" (click)="displayMedicion(row)"><i class="material-icons">format_list_numbered</i></a></li>
+                  <li><a class="btn-floating red" (click)="displayChart(row)"><i class="material-icons">show_chart</i></a></li>                  
+                </ul>
+              </div>                                            
+              <div><span class="device_name">{{row.nombre | uppercase}}</span></div>                        
+              <div>Ubicado en {{row.ubicacion}}</div>                        
+              <div>{{row.sensores?.length}} sensore(s) instalado(s)</div> 
+              <table *ngIf="row.sensores?.length > 0" style="display: inline-block">                
+                <tr><td *ngFor="let sn of row.sensores">
+                  <label style="padding-left: 0.6em;">{{sn.tipo}}</label>
+                  <div [ngSwitch]="sn.tipo" style="border: solid 1px #cccccc; padding:0.2em; border-radius: 0.8em"> 
+                    <div *ngSwitchCase="'Temperatura'">
+                      <img src="/assets/images/temp.png"  class="img_temp"/>  
+                      <span class="measure">{{sn.ultimamedicion.valor | celsius}}</span>
+                    </div>           
+                    <div *ngSwitchCase="'Humedad'">
+                      <img src="/assets/images/hum.png"  class="img_temp"/>  
+                      <span class="measure">{{sn.ultimamedicion.valor}} %</span>                 
+                    </div>           
+                    <div style="margin-left:0.5em;">{{sn.ultimamedicion.fecha | formatDate}}</div> 
+                  </div>                                                        
+                </td></tr>           
+              </table>
+              <div class="container" style="margin-left: 0;margin-right: 0;" >
+                <div class="row">
+                  <div class="col s11">
+                      <div id="content_chart_{{row.dispositivoId}}" style="text-align: left;"></div>
+                      <div id="content_msre_{{row.dispositivoId}}" style="text-align: left;"></div>
+                  </div>
+                </div>
+              </div>              
+            </li>
+          </ul>
+          <!-- Modal Structure for UPDATE -->
+          <div id="edit_" class="modal">
+            <div class="modal-content">
+              <h4>Dispositivo {{disp_selected.dispositivoId}}</h4>
+              <div><strong>Nombre</strong></div>
+              <div style="width:20em"><input type="text" [(ngModel)]="disp_selected.nombre" maxlength="35"/></div>
+              <div><strong>Ubicacion</strong></div>
+              <div style="width:20em"><input type="text" [(ngModel)]="disp_selected.ubicacion" maxlength="35"/></div>
+            </div>
+            <div class="modal-footer">              
+              <a href="#!" class="modal-action btn deep-orange darken-3" style="margin: 0.1em;margin-left: 0.5em;" (click)="update()">Guardar</a>              
+              <a href="#!" class="modal-action modal-close btn deep-orange darken-3" style="margin: 0.1em;">Cancelar</a>
+            </div>
+          </div>          	             
+          <div class="fixed-action-btn horizontal">
+            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>      
+          </div>
+           <!-- Modal Structure for INSERT -->
+          <div id="new_" class="modal">
+            <div class="modal-content">
+              <h4>Nuevo dispositivo</h4>
+              <div><strong>Nombre</strong></div>
+              <div style="width:20em"><input type="text" [(ngModel)]="disp_create.nombre" maxlength="35"/></div>
+              <div><strong>Ubicacion</strong></div>
+              <div style="width:20em"><input type="text" [(ngModel)]="disp_create.ubicacion" maxlength="35"/></div>
+            </div>
+            <div class="modal-footer">              
+              <a href="#!" class="modal-action modal-close btn deep-orange darken-3" style="margin: 0.1em;margin-left: 0.5em;" (click)="insert()">Agregar</a>              
+              <a href="#!" class="modal-action modal-close btn deep-orange darken-3" style="margin: 0.1em;">Cancelar</a>
+            </div>
+          </div>          	           
+          <!-- Modal Structure for DELETE -->
+          <div id="delete_" class="modal">
+            <div class="modal-content">              
+              <div><h5>{{disp_selected.nombre}}</h5></div>
+              <div><strong><h6>Está seguro que desea borrarlo?</h6></strong></div>              
+            </div>
+            <div class="modal-footer">              
+              <a href="#!" class="modal-action modal-close btn deep-orange darken-3" style="margin: 0.1em;margin-left: 0.5em;" (click)="delete()">Aceptar</a>              
+              <a href="#!" class="modal-action modal-close btn deep-orange darken-3" style="margin: 0.1em;">Cancelar</a>
+            </div>
+          </div>          	             
+          <div class="fixed-action-btn horizontal">
+            <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" data-target="new_" (click)="prepareForInsert()"><i class="material-icons">add</i></a>      
+          </div>
+      </ng-template>
+      <ng-template #loading>
+          <div style="width:100%; text-align:center">
+            <img src="assets/images/empty.png" style="width:10rem;height:10rem;"/>
+            <p><span appDirResalta>No existen dispositivos</span></p>
+          </div>
+          <div class="fixed-action-btn horizontal">
+            <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" data-target="new_" (click)="prepareForInsert()"><i class="material-icons">add</i></a>      
+          </div>
+      </ng-template>      
+    </div>
+  </div>
+</div>		
+
+
+
+
+
+

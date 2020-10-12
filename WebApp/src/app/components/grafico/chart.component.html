@@ -1,0 +1,12 @@
+<ng-template [ngIf]="medicion_entry?.length > 0" [ngIfElse]="loading">  
+    <div style="width: 30.0em; border: solid 1px #cccccc; padding: 0.4em">
+        <div><google-chart title="Temperatura (°C)" type="LineChart" [data]="chart_data_temp" [options]="chart_options_temp"></google-chart></div>
+        <div><google-chart title="Humedad (%)" type="LineChart" [data]="chart_data_hum" [options]="chart_options_hum"></google-chart></div>    
+    </div>          
+</ng-template>
+<ng-template #loading>
+    <div style="width:100%; text-align:center;margin-top:0.8rem"> 
+        <img src="assets/images/empty_doc.png" style="width:4rem;height:4rem;"/>     
+        <div><strong>Log de riego sin datos</strong></div>
+    </div>
+</ng-template>
