@@ -7,9 +7,7 @@ Trabajo práctico para la materia **Desarrollo de Aplicaciones III** que forma p
 Atilio Cesar Errecaborde
 
 ## Estructura del proyecto
-La estructura del proyecto está organizada de la siguiente manera. 
-
-develop
+La estructura de carpetas del proyecto está organizada de la siguiente manera:
 
   **Database** > script para crear la base de datos desde el shell de mongoDB
   
@@ -17,7 +15,7 @@ develop
   
   **WebAPI** > aplicación MVC en nodejs
   
-  **OnlineApp** > aplicación en node-red
+  **OnlineApp** > script para crear flow en node-red
 
 
 ### Funcionalidades y características requeridas
