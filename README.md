@@ -11,13 +11,13 @@ La estructura del proyecto está organizada de la siguiente manera.
 
 develop
 
-  **{folder}** Database (script para crear la base de datos desde el shell de mongoDB)
+  **Database** > script para crear la base de datos desde el shell de mongoDB
   
-  **{folder}** WebApp (aplicación en Angular)
+  **WebApp** > aplicación en Angular
   
-  **{folder}** WebAPI (aplicación MVC en nodejs)
+  **WebAPI** > aplicación MVC en nodejs
   
-  **{folder}** OnlineApp (aplicación en node-red)  
+  **OnlineApp** > aplicación en node-red
 
 
 ### Funcionalidades y características requeridas
