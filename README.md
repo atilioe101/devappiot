@@ -1,5 +1,5 @@
 # devappiot
-Trabajo práctico para la materia **Desarrollo de Aplicaciones III** que forma parte de la especialidad en Internet de las Cosas de la Universidad de Buenos Aires.
+Aplicación full-stack web para el monitoreo y gestión de sensores de temperatura instalados en campo.
 
 ![status](https://img.shields.io/badge/status-running-green.svg?colorB=00C106) ![readme](https://img.shields.io/badge/readme-OK-green.svg?colorB=00C106) ![database](https://img.shields.io/badge/database-OK-green.svg?colorB=00C106) ![commits](https://img.shields.io/badge/commits-3-blue.svg)  
 
